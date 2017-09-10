@@ -6,3 +6,6 @@ RUN yum install -y gpg2 sudo; \
     if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi; \
     yum clean all
 
+ADD entrypoint.sh /opt/
+
+ENTRYPOINT ["/opt/entrypoint.sh"]
